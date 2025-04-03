@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>COSMIC CODEX | DIE KUNST DES UNENDLICHEN</title>
+    <style>
+        /* ===== INTERSTELLARES DESIGN ===== */
+        :root {
+            --starfield: #0a0a20;
+            --nebula-purple: #6a00ff;
+            --quantum-blue: #00f0ff;
+            --supernova-yellow: #ffcc00;
+            --dark-matter: #000033;
+        }
+
+        body {
+            margin: 0;
+            background: 
+                radial-gradient(ellipse at bottom, var(--dark-matter) 0%, #000 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10%" cy="20%" r="1" fill="white" opacity="0.8"/><circle cx="30%" cy="50%" r="1" fill="white" opacity="0.6"/><circle cx="70%" cy="30%" r="1.5" fill="white" opacity="1"/></svg>');
+            color: white;
+            font-family: 'Orbitron', 'Arial Narrow', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* ----- QUANTUM-INTERFACE ----- */
+        .cosmic-interface {
+            width: 90%;
+            max-width: 1400px;
+            height: 90vh;
+            margin: 5vh auto;
+            background: rgba(10, 10, 40, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--quantum-blue);
+            box-shadow: 
+                0 0 50px rgba(106, 0, 255, 0.3),
+                inset 0 0 20px rgba(0, 240, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ----- HOLOGRAPHIC HEADER ----- */
+        .holographic-header {
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(90deg, transparent, rgba(106, 0, 255, 0.3), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holographic-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--quantum-blue), 
+                var(--nebula-purple), 
+                transparent);
+            animation: scanline 3s linear infinite;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, var(--supernova-yellow), var(--quantum-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        /* ----- FRACTAL GRID SYSTEM ----- */
+        .fractal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            height: calc(100% - 200px);
+        }
+
+        .quantum-panel {
+            background: rgba(0, 0, 50, 0.3);
+            border: 1px solid var(--quantum-blue);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quantum-panel:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .quantum-panel::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 45%,
+                rgba(0, 240, 255, 0.1) 50%,
+                transparent 55%
+            );
+            animation: rotate 15s linear infinite;
+        }
+
+        /* ----- INTERACTIVE ELEMENTS ----- */
+        .stellar-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--nebula-purple), var(--quantum-blue));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 1rem;
+        }
+
+        .stellar-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .stellar-button:hover::before {
+            left: 100%;
+        }
+
+        /* ----- ANIMATIONS ----- */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        @keyframes qubit-glitch {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(5px, -5px); opacity: 0.8; }
+            40% { transform: translate(-5px, 5px); opacity: 1; }
+            60% { transform: translate(0, 0) scale(1.2); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes qubit-float {
+            0%, 100% { top: 30%; left: 20%; }
+            50% { top: 70%; left: 80%; }
+        }
+
+        @keyframes nebula-pulse {
+            0% { opacity: 0.7; background-size: 100% 100%; }
+            100% { opacity: 1; background-size: 120% 120%; }
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .fractal-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-interface">
+        <div class="holographic-header">
+            <h1>COSMIC CODEX</h1>
+            <p>Die Sprache des Universums in Code übersetzt</p>
+        </div>
+
+        <div class="fractal-grid">
+            <!-- QUANTUM COMPUTE PANEL - KORRIGIERT -->
+            <div class="quantum-panel">
+                <h2>QUANTEN-COMPUTING</h2>
+                <p>Verschränkte Algorithmen für multidimensionale Problemstellungen</p>
+                <div style="
+                    height: 100px; 
+                    margin: 1rem 0;
+                    background: 
+                        repeating-linear-gradient(90deg, 
+                            transparent, 
+                            transparent 19px, 
+                            var(--quantum-blue) 20px),
+                        repeating-linear-gradient(0deg, 
+                            transparent, 
+                            transparent 19px, 
+                            var(--quantum-blue) 20px);
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div style="
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        background: var(--supernova-yellow);
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 30%;
+                        animation: 
+                            qubit-glitch 3s infinite,
+                            qubit-float 5s infinite ease-in-out;
+                    "></div>
+                </div>
+                <button class="stellar-button">QUBITS AKTIVIEREN</button>
+            </div>
+
+            <!-- NEBULA DATABASE - KORRIGIERT -->
+            <div class="quantum-panel">
+                <h2>NEBEL-DATENBANK</h2>
+                <p>Interstellare Wissensspeicher mit holographischer Indexierung</p>
+                <div style="
+                    height: 100px;
+                    margin: 1rem 0;
+                    background: 
+                        radial-gradient(circle at 30% 50%, 
+                            rgba(106, 0, 255, 0.5), 
+                            transparent 70%),
+                        radial-gradient(circle at 70% 50%, 
+                            rgba(0, 240, 255, 0.3), 
+                            transparent 70%);
+                    position: relative;
+                    animation: nebula-pulse 8s infinite alternate;
+                "></div>
+                <button class="stellar-button">DATENSTROM INITIIEREN</button>
+            </div>
+
+            <!-- GALACTIC NETWORK - UNVERÄNDERT (PERFEKT) -->
+            <div class="quantum-panel">
+                <h2>GALAKTISCHES NETZWERK</h2>
+                <p>FTL-Kommunikation über Wurmlöcher und Quantentunnel</p>
+                <div style="position: relative; height: 100px; margin: 1rem 0;">
+                    <div style="position: absolute; width: 100%; height: 2px; background: var(--quantum-blue); top: 50%;"></div>
+                    <div style="position: absolute; width: 20px; height: 20px; background: var(--supernova-yellow); border-radius: 50%; left: 20%; top: 50%; transform: translateY(-50%); animation: pulse 2s infinite;"></div>
+                    <div style="position: absolute; width: 20px; height: 20px; background: var(--nebula-purple); border-radius: 50%; left: 50%; top: 50%; transform: translateY(-50%); animation: pulse 2s infinite 0.5s;"></div>
+                    <div style="position: absolute; width: 20px; height: 20px; background: var(--quantum-blue); border-radius: 50%; left: 80%; top: 50%; transform: translateY(-50%); animation: pulse 2s infinite 1s;"></div>
+                </div>
+                <button class="stellar-button">NETZWERK SCANNEN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Intergalaktische Initialisierung
+        document.querySelectorAll('.

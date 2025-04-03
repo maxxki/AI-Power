@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>HACKATHON DESTROYER | EINFACH "MEH"</title>
+    <style>
+        /* ===== DAS CSS, DAS ALLES ZERSTÖRT ===== */
+        :root {
+            --hacker-green: #00ff41;
+            --cyber-purple: #a100ff;
+            --matrix-dark: #0a0a0a;
+            --blood-red: #ff0033;
+            --godmode-gold: #ffd700;
+        }
+
+        body {
+            margin: 0;
+            background: var(--matrix-dark);
+            color: var(--hacker-green);
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ----- TERMINAL DER MACHT ----- */
+        .god-terminal {
+            width: 90%;
+            height: 90vh;
+            margin: 5vh auto;
+            border: 3px solid var(--cyber-purple);
+            box-shadow: 
+                0 0 30px var(--cyber-purple),
+                inset 0 0 30px rgba(161, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ----- HACKATHON-ZERSTÖRER HEADER ----- */
+        .destroyer-header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--hacker-green);
+            position: relative;
+        }
+
+        .destroyer-header h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 0 0 10px var(--hacker-green);
+            letter-spacing: 5px;
+        }
+
+        .destroyer-header::after {
+            content: "MEH.";
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--godmode-gold);
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        /* ----- DIE 3 TÖDLICHEN SPALTEN ----- */
+        .annihilator-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            height: calc(100% - 100px);
+        }
+
+        .destroyer-column {
+            padding: 20px;
+            border-right: 1px dashed var(--hacker-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destroyer-column:last-child {
+            border-right: none;
+        }
+
+        /* ----- FEATURE-LISTEN (DIE KONKURRENZ WEINT) ----- */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(0, 255, 65, 0.1);
+            border-left: 3px solid var(--blood-red);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            background: rgba(0, 255, 65, 0.3);
+            transform: translateX(10px);
+        }
+
+        /* ----- PROGRESSBAR DER ÜBERLEGENHEIT ----- */
+        .domination-bar {
+            height: 20px;
+            background: rgba(255, 0, 51, 0.2);
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .domination-progress {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--blood-red), var(--cyber-purple));
+            animation: dominate 3s infinite alternate;
+        }
+
+        /* ----- UNTERSCHRIFT DES SIEGES ----- */
+        .signature {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: var(--godmode-gold);
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        /* ----- ANIMATIONEN DER ZERSTÖRUNG ----- */
+        @keyframes dominate {
+            0% { width: 90%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0 0 10px var(--hacker-green); }
+            25% { text-shadow: -5px 0 var(--cyber-purple); }
+            50% { text-shadow: 5px 0 var(--blood-red); }
+            75% { text-shadow: -5px 0 var(--godmode-gold); }
+        }
+    </style>
+</head>
+<body>
+    <div class="god-terminal">
+        <div class="destroyer-header">
+            <h1>HACKATHON ANNIHILATOR 9000</h1>
+        </div>
+
+        <div class="annihilator-grid">
+            <!-- COLUMN 1: FEATURES -->
+            <div class="destroyer-column">
+                <h2>💥 ZERSTÖRTE FEATURES</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">Blockchain ohne Buzzwords</li>
+                    <li class="feature-item">KI die wirklich funktioniert</li>
+                    <li class="feature-item">3D-Visuals ohne Loading-Time</li>
+                    <li class="feature-item">Responsive bevor es cool war</li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 2: STATS -->
+            <div class="destroyer-column">
+                <h2>📊 STATS DER DEMÜTIGUNG</h2>
+                <p>Teams überrollt: <span style="color:var(--blood-red)">∞</span></p>
+                <p>Jury-Tränen: <span style="color:var(--cyber-purple)">742</span></p>
+                <p>Entwicklungszeit: <span style="color:var(--hacker-green)">3min</span></p>
+                
+                <div class="domination-bar">
+                    <div class="domination-progress"></div>
+                </div>
+            </div>
+
+            <!-- COLUMN 3: CODE -->
+            <div class="destroyer-column">
+                <h2>💻 CODE DER GÖTTER</h2>
+                <pre style="color:var(--godmode-gold)">
+while(competition.exists()) {
+    competition.destroy();
+    drinkCoffee();
+    // 😎
+}</pre>
+                <button style="
+                    background: var(--blood-red);
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    margin-top: 20px;
+                    cursor: pointer;
+                " onclick="annihilate()">
+                    HACKATHON ZERSTÖREN
+                </button>
+            </div>
+        </div>
+
+        <div class="signature">
+            - Gecoded mit einem Seufzer -
+        </div>
+    </div>
+
+    <script>
+        // ===== ZERSTÖRUNGS-SKRIPT =====
+        function annihilate() {
+            const terminal = document.querySelector('.god-terminal');
+            terminal.style.animation = 'glitch 0.5s infinite';
+            
+            setTimeout(() => {
+                terminal.style.animation = '';
+                terminal.innerHTML = `
+                    <div style="
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 3rem;
+                        color: var(--blood-red);
+                        text-align: center;
+                    ">
+                        HACKATHON ERFOLGREICH <br>
+                        ZERSTÖRT 🎉<br>
+                        <span style="font-size:1rem;color:var(--hacker-green)">(Bitte nächsten laden...)</span>
+                    </div>
+                `;
+            }, 1000);
+        }
+
+        // ===== KONSOLE-LOG DER MACHT =====
+        console.log("%cHACKATHON? EHER WACKATHON!", "font-size: 20px; color: #ff0033; text-shadow: 0 0 5px #ff0033;");
+        console.log("%cWir haben gerade 42 Teams mit einem Fingerzehl zerstört", "color: #00ff41;");
+    </script>
+</body>
+</html>

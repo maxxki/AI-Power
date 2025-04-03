@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-AI | Quanten-Business-Optimierung</title>
+    <style>
+        :root {
+            --neon-blue: #00f7ff;
+            --neon-purple: #bd00ff;
+            --matrix-green: #00ff41;
+            --cyber-dark: #0d0d15;
+            --cyber-light: #e0e0e8;
+            --pulse-speed: 4s;
+        }
+
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+            font-display: swap;
+        }
+
+        body {
+            background-color: var(--cyber-dark);
+            color: var(--cyber-light);
+            font-family: 'Orbitron', 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 18px; /* Standard-Schriftgröße erhöht */
+        }
+
+        /* GLOWING BORDERS */
+        .cyber-card {
+            position: relative;
+            background: rgba(13, 13, 21, 0.8);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 5px; /* Abgerundete Ecken für ein moderneres Aussehen */
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            background: linear-gradient(45deg, 
+                var(--neon-blue), 
+                var(--neon-purple), 
+                var(--matrix-green));
+            background-size: 200% 200%;
+            animation: borderGlow var(--pulse-speed) linear infinite;
+            border-radius: 5px; /* Passend zu cyber-card */
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; opacity: 0.7; }
+            50% { background-position: 100% 50%; opacity: 1; }
+            100% { background-position: 0% 50%; opacity: 0.7; }
+        }
+
+        /* MATRIX TEXT EFFECT */
+        .matrix-text {
+            background: linear-gradient(to right, 
+                var(--matrix-green) 20%, 
+                var(--neon-blue) 40%, 
+                var(--neon-blue) 60%, 
+                var(--matrix-green) 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* HOLOGRAPHIC UI ELEMENTS */
+        .hologram {
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,247,255,0.3)" stroke-width="0.5"/></pattern><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            position: relative;
+        }
+
+        .hologram::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(189, 0, 255, 0.05) 0%, 
+                rgba(0, 247, 255, 0.1) 50%, 
+                rgba(0, 255, 65, 0.05) 100%);
+        }
+
+        /* TERMINAL CURSOR EFFECT */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cursor::after {
+            content: '▋';
+            animation: blink 1s step-end infinite;
+            color: var(--matrix-green);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header style="border-bottom: 1px solid var(--neon-blue); padding: 1.5rem 0; position: fixed; width: 100%; z-index: 1000; background: rgba(13, 13, 21, 0.9);">
+        <div style="width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 40px; height: 40px; background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);"></div>
+                <h1 style="margin: 0; font-size: 2.5rem;">
+                    <span class="matrix-text">NEXUS-AI</span>
+                </h1>
+            </div>
+            
+            <nav>
+                <ul style="display: flex; list-style: none; gap: 2rem; margin: 0;">
+                    <li><a href="#" style="color: var(--cyber-light); text-decoration: none; position: relative;">
+                        <span style="color: var(--neon-blue);">></span> Home
+                    </a></li>
+                    <li><a href="#" style="color: var(--cyber-light); text-decoration: none; position: relative;">
+                        <span style="color: var(--neon-blue);">></span> Solutions
+                    </a></li>
+                    <li><a href="#" style="color: var(--cyber-light); text-decoration: none; position: relative;">
+                        <span style="color: var(--neon-blue);">></span> Case_Studies
+                    </a></li>
+                    <li><a href="#" style="color: var(--neon-blue); text-decoration: none; font-weight: bold;">
+                        <span style="color: var(--matrix-green);">$</span> Login_Terminal
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px; min-height: 100vh;">
+        <section style="padding: 5rem 0; position: relative; overflow: hidden;">
+            <div class="hologram" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+            
+            <div style="width: 90%; max-width: 1200px; margin: 0 auto; position: relative;">
+                <div style="max-width: 800px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="width: 20px; height: 20px; background: var(--matrix-green); box-shadow: 0 0 10px var(--matrix-green);"></div>
+                        <h2 style="margin: 0; font-size: 3.5rem; line-height: 1.2;">
+                            <span class="matrix-text">BUSINESS_OPTIMIERUNG.exe</span>
+                        </h2>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--neon-blue); padding-left: 1.5rem; margin-bottom: 3rem;">
+                        <p style="font-size: 1.4rem; margin: 0 0 1rem 0;">
+                            > INITIALISING QUANTUM_ANALYSIS_MODULE<span class="cursor"></span>
+                        </p>
+                        <p style="font-size: 1.4rem; margin: 0;">
+                            > LOADING ROI_PREDICTION_ENGINE<span class="cursor"></span>
+                        </p>
+                    </div>
+                    
+                    <div class="cyber-card" style="max-width: 600px;">
+                        <h3 style="margin-top: 0; color: var(--neon-blue); font-size: 2rem;">> TERMINAL_ACCESS_REQUEST</h3>
+                        <p style="margin-bottom: 2rem;">Enter your credentials to unlock AI-powered business optimization:</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                <div style="width: 10px; height: 10px; background: var(--matrix-green); margin-right: 0.5rem;"></div>
+                                <label for="email" style="color: var(--neon-blue);">BUSINESS_EMAIL:</label>
+                            </div>
+                            <input type="email" id="email" style="width: 100%; padding: 0.8rem; background: rgba(0, 247, 255, 0.1); border: 1px solid var(--neon-blue); color: white; font-family: 'Orbitron';">
+                        </div>
+                        
+                        <button style="width: 100%; padding: 1rem; background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue)); border: none; color: black; font-family: 'Orbitron'; font-weight: bold; font-size: 1.2rem; cursor: pointer; position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 2;">REQUEST_ACCESS_TOKEN</span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: 0.5s;"></span>
+                        </button>
+                        
+                        <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--neon-blue);">
+                            > ACCESS_GRANTED_TO: 3_USERS_THIS_HOUR
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 400px; height: 400px; background: radial-gradient(circle, var(--neon-purple) 0%, transparent 60%); filter: blur(60px); opacity: 0.3; z-index: -1;"></div>
+            </div>
+        </section>
+
+        <section style="padding: 5rem 0; position: relative;">
+            <div style="width: 90%; max-width: 1200px; margin: 0 auto;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+                    <div style="width: 20px; height: 20px; background: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);"></div>
+                    <h2 style="margin: 0; font-size: 2.5rem;">
+                        <span class="matrix-text">SOLUTION_PACKAGES</span>
+                    </h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="cyber-card">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 15px; height: 15px; background: var(--matrix-green);"></div>
+                            <h3 style="margin: 0; color: var(--neon-blue); font-size: 1.8rem;">QUICK_SCAN.v1</h3>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <p style="color: var(--matrix-green); font-size: 1.8rem; margin: 0 0 0.5rem 0;">200€</p>
+                            <p style="color: var(--cyber-light); margin: 0;">> 72H_ANALYSIS_CYCLE</p>
+                        </div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(0, 247, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--matrix-green);">+</span> TOP_3_OPTIMIZATIONS
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(0, 247, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--matrix-green);">+</span> ROI_PREDICTION_ENGINE
+                            </li>
+                            <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--matrix-green);">+</span> 30D_FOLLOW_UP
+                            </li>
+                        </ul>
+                        
+                        <div style="background: rgba(0, 255, 65, 0.1); padding: 1rem; margin-bottom: 1.5rem; border-left: 3px solid var(--matrix-green);">
+                            <p style="margin: 0; color: var(--matrix-green);">
+                                > PROJECTED_ROI: <span style="font-weight: bold;">1.000€/3MONTHS</span>
+                            </p>
+                        </div>
+                        
+                        <button style="width: 100%; padding: 0.8rem; background: transparent; border: 1px solid var(--neon-blue); color: var(--neon-blue); font-family: 'Orbitron'; cursor: pointer; transition: var(--pulse-speed); position: relative;">
+                            <span style="position: relative; z-index: 2;">EXECUTE_NOW</span>
+                            <span style="position: absolute; top: 0; left: 0; width: 0; height: 100%; background: var(--neon-blue); transition: 0.3s; z-index: 1;"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="cyber-card" style="border-color: var(--neon-purple);">
+                        <div style="position: absolute; top: 1rem; right: 1rem; background: var(--neon-purple); color: black; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: bold;">
+                            RECOMMENDED
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 15px; height: 15px; background: var(--neon-purple);"></div>
+                            <h3 style="margin: 0; color: var(--neon-purple); font-size: 1.8rem;">DEEP_DIVE.v2</h3>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <p style="color: var(--neon-purple); font-size: 1.8rem; margin: 0 0 0.5rem 0;">3.500€</p>
+                            <p style="color: var(--cyber-light); margin: 0;">> 14D_ANALYSIS_CYCLE</p>
+                        </div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(189, 0, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-purple);">+</span> FULL_PROCESS_SCAN
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(189, 0, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-purple);">+</span> AI_WEAKNESS_DETECTION
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(189, 0, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-purple);">+</span> PRIORITY_ROADMAP
+                            </li>
+                            <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-purple);">+</span> 90D_SUPPORT
+                            </li>
+                        </ul>
+                        
+                        <div style="background: rgba(189, 0, 255, 0.1); padding: 1rem; margin-bottom: 1.5rem; border-left: 3px solid var(--neon-purple);">
+                            <p style="margin: 0; color: var(--neon-purple);">
+                                > PROJECTED_ROI: <span style="font-weight: bold;">15.000€/6MONTHS</span>
+                            </p>
+                        </div>
+                        
+                        <button style="width: 100%; padding: 0.8rem; background: var(--neon-purple); border: none; color: black; font-family: 'Orbitron'; font-weight: bold; cursor: pointer; transition: 0.3s;">
+                            DEPLOY_AI_AGENT
+                        </button>
+                    </div>
+                    
+                    <div class="cyber-card">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 15px; height: 15px; background: var(--neon-blue);"></div>
+                            <h3 style="margin: 0; color: var(--neon-blue); font-size: 1.8rem;">ENTERPRISE.v3</h3>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <p style="color: var(--neon-blue); font-size: 1.8rem; margin: 0 0 0.5rem 0;">15.000€+</p>
+                            <p style="color: var(--cyber-light); margin: 0;">> 60D_TRANSFORMATION</p>
+                        </div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(0, 247, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-blue);">+</span> QUANTUM_OPTIMIZATION
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(0, 247, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-blue);">+</span> CUSTOM_AI_MODEL
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed rgba(0, 247, 255, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-blue);">+</span> DEDICATED_NEXUS_AGENT
+                            </li>
+                            <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: var(--neon-blue);">+</span> REAL-TIME_DASHBOARD
+                            </li>
+                        </ul>
+                        
+                        <div style="background: rgba(0, 247, 255, 0.1); padding: 1rem; margin-bottom: 1.5rem; border-left: 3px solid var(--neon-blue);">
+                            <p style="margin: 0; color: var(--neon-blue);">
+                                > PROJECTED_ROI: <span style="font-weight: bold;">100.000€+/6MONTHS</span>
+                            </p>
+                        </div>
+                        
+                        <button style="width: 100%; padding: 0.8rem; background: transparent; border: 1px solid var(--neon-blue); color: var(--neon-blue); font-family: 'Orbitron'; cursor: pointer; transition: 0.3s; position: relative;">
+                            <span style="position: relative; z-index: 2;">REQUEST_SPECS</span>
+                            <span style="position: absolute; top: 0; left: 0; width: 0; height: 100%; background: var(--neon-blue); transition: 0.3s; z-index: 1;"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, var(--matrix-green) 0%, transparent 70%); filter: blur(60px); opacity: 0.2; z-index: -1;"></div>
+        </section>
+
+        <section style="padding: 5rem 0; background: rgba(0, 0, 0, 0.5); position: relative;">
+            <div class="hologram" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+            
+            <div style="width: 90%; max-width: 1200px; margin: 0 auto;">
+                <div class="cyber-ca
