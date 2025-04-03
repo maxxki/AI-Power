@@ -1,2 +1,1 @@
-Live Demo
-     - [Quantum Visuals](https://maxxki.github.io/AI-Power/)  
+Live (https://maxxki.github.io/AI-Power/)  
