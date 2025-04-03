@@ -1,0 +1,202 @@
+/* ===== QUANTUM CORE STYLESHEET ===== */
+/* by maxxki/AI-Power - Free to use under MIT License */
+
+:root {
+  /* ---- QUANTUM COLOR PALETTE ---- */
+  --void-black: #00001a;
+  --quantum-plasma: #6a00ff;
+  --tachyon-wave: #00f0ff;
+  --neutrino-gold: #ffcc00;
+  --antimatter-red: #ff0033;
+  --singularity-white: rgba(255, 255, 255, 0.9);
+  
+  /* ---- ANIMATION SPEEDS ---- */
+  --quantum-flicker: 0.8s;
+  --tachyon-pulse: 3s;
+  --entanglement-spin: 15s;
+}
+
+/* === BASE QUANTUM ENVIRONMENT === */
+body {
+  background: 
+    radial-gradient(ellipse at bottom, var(--void-black) 0%, #000000 100%),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.1"/></svg>');
+  color: var(--singularity-white);
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* === QUANTUM TERMINAL CONTAINER === */
+.quantum-terminal {
+  background: rgba(0, 5, 15, 0.7);
+  border: 1px solid var(--tachyon-wave);
+  box-shadow: 
+    0 0 25px rgba(0, 240, 255, 0.3),
+    inset 0 0 15px rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(5px);
+  width: 85%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-terminal::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 45%,
+    rgba(0, 240, 255, 0.05) 50%,
+    transparent 55%
+  );
+  animation: var(--entanglement-spin) linear infinite quantum-spin;
+  pointer-events: none;
+}
+
+/* === GLITCH TEXT EFFECTS === */
+.quantum-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.quantum-glitch::before,
+.quantum-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.quantum-glitch::before {
+  color: var(--antimatter-red);
+  z-index: -1;
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.quantum-glitch::after {
+  color: var(--tachyon-wave);
+  z-index: -2;
+  animation: glitch-anim 2s infinite linear alternate;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+/* === HOLOGRAM EFFECT === */
+.hologram {
+  background: linear-gradient(
+    135deg,
+    rgba(106, 0, 255, 0.2) 0%,
+    rgba(0, 240, 255, 0.3) 50%,
+    rgba(106, 0, 255, 0.2) 100%
+  );
+  border: 1px solid var(--tachyon-wave);
+  position: relative;
+}
+
+.hologram::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 240, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: hologram-flicker var(--quantum-flicker) infinite alternate;
+}
+
+@keyframes hologram-flicker {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+/* === QUANTUM NODES (ANIMATED PARTICLES) === */
+.quantum-node {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  filter: 
+    drop-shadow(0 0 5px currentColor)
+    drop-shadow(0 0 15px currentColor);
+  animation: 
+    quantum-drift 7s infinite ease-in-out,
+    quantum-pulse var(--tachyon-pulse) infinite alternate;
+  z-index: 100;
+}
+
+@keyframes quantum-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, -30px); }
+}
+
+@keyframes quantum-pulse {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* === TERMINAL COMMAND LINE === */
+.command-line {
+  color: var(--tachyon-wave);
+  font-family: 'Courier New', monospace;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.command-line::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--neutrino-gold);
+}
+
+.command-line::after {
+  content: "_";
+  animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* === RESPONSIVE QUANTUM GRID === */
+.quantum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.quantum-cell {
+  background: rgba(0, 10, 30, 0.5);
+  border: 1px solid var(--quantum-plasma);
+  transition: all 0.3s ease;
+}
+
+.quantum-cell:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(106, 0, 255, 0.4);
+}
