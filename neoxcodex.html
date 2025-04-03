@@ -277,4 +277,68 @@
 
     <script>
         // Intergalaktische Initialisierung
-        document.querySelectorAll('.
+        document.querySelectorAll('.stellar-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Quanteneffekt beim Klicken
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+                
+                // Aktivierungsnachricht
+                const panelTitle = this.parentElement.querySelector('h2').textContent;
+                console.log(`${panelTitle} aktiviert - Zugriff auf kosmische Datenmuster initiiert`);
+                
+                // Visuellen Effekt für das gesamte Panel hinzufügen
+                const panel = this.parentElement;
+                panel.style.boxShadow = '0 0 30px var(--nebula-purple)';
+                setTimeout(() => {
+                    panel.style.boxShadow = '';
+                }, 1000);
+            });
+        });
+
+        // Sternenfeldgenerator
+        function createStars() {
+            const cosmicInterface = document.querySelector('.cosmic-interface');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                star.style.opacity = Math.random() * 0.5 + 0.5;
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animation = `pulse ${Math.random() * 3 + 2}s infinite`;
+                cosmicInterface.appendChild(star);
+            }
+        }
+        
+        // Dimensionsportale initialisieren
+        function initPortals() {
+            const panels = document.querySelectorAll('.quantum-panel');
+            panels.forEach((panel, index) => {
+                // Verzögerter Eintritt ins Sichtfeld
+                panel.style.opacity = '0';
+                panel.style.transform = 'translateY(50px)';
+                setTimeout(() => {
+                    panel.style.opacity = '1';
+                    panel.style.transform = 'translateY(0)';
+                }, index * 300);
+            });
+        }
+        
+        // Initialisierung beim Laden der Seite
+        window.addEventListener('load', () => {
+            createStars();
+            initPortals();
+            
+            // Konsolen-Grüße an Entdecker
+            console.log("%c✧ COSMIC CODEX AKTIVIERT ✧", "color: #00f0ff; font-size: 20px; font-weight: bold;");
+            console.log("%cWillkommen im intergalaktischen Datennetz", "color: #6a00ff;");
+        });
+    </script>
+</body>
+</html>
